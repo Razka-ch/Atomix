@@ -24,8 +24,6 @@ class EnsureMembershipActive
       }
     }
 
-//nkjndfsnvf
-
     return $next($request);
   }
 }
