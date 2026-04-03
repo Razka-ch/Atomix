@@ -6,12 +6,12 @@
     <title>Contacts - Atomix Books</title>
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="font-sans">
 
-    <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full z-50 bg-slate-800/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
 
@@ -158,37 +158,31 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="relative min-h-screen flex items-center justify-center text-center pt-24">
-        <!-- Background -->
+    <section class="relative min-h-screen flex items-center justify-center text-center pt-24 overflow-hidden">
         <div class="absolute inset-0">
             <img src="{{ asset('img/abouthero.jpg') }}" class="w-full h-full object-cover" alt="">
             <div class="absolute inset-0 bg-black/60"></div>
         </div>
 
-        <!-- Content -->
         <div class="relative z-10 max-w-4xl px-4 sm:px-6">
 
-            <h2 class="text-white text-xl sm:text-3xl md:text-4xl font-semibold tracking-wide mb-2">
+            <h2 data-aos="fade-down" data-aos-duration="1000" class="text-white text-xl sm:text-3xl md:text-4xl font-semibold tracking-wide mb-2">
                 CONTACT
             </h2>
 
-            <h1
+            <h1 data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200"
                 class="text-slate-200 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-widest mb-36">
                 ATOMIX BOOKS
             </h1>
 
-
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section class="bg-[#bfc6cc] py-20">
+    <section class="bg-[#bfc6cc] py-20 overflow-hidden">
 
         <div class="max-w-5xl mx-auto px-6">
 
-            <!-- FORM -->
-            <form action="{{ route('contacts.store') }}" method="POST">
+            <form data-aos="fade-up" data-aos-duration="1000" action="{{ route('contacts.store') }}" method="POST">
                 @csrf
 
                 @if (session('success'))
@@ -204,21 +198,21 @@
                     <div class="space-y-6">
                         <input type="text" name="subject" required placeholder="Subject"
                             value="{{ old('subject') }}"
-                            class="w-full px-6 py-4 rounded-xl bg-gray-200 shadow-md outline-none focus:ring-2 focus:ring-slate-600">
+                            class="w-full px-6 py-4 rounded-xl bg-gray-200 shadow-md outline-none focus:ring-2 focus:ring-slate-600 transition">
                         @error('subject')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                         @enderror
 
                         <input type="text" name="name" required placeholder="Name"
                             value="{{ Auth::check() ? Auth::user()->nama : old('name') }}"
-                            class="w-full px-6 py-4 rounded-xl bg-gray-200 shadow-md outline-none focus:ring-2 focus:ring-slate-600">
+                            class="w-full px-6 py-4 rounded-xl bg-gray-200 shadow-md outline-none focus:ring-2 focus:ring-slate-600 transition">
                         @error('name')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                         @enderror
 
                         <input type="email" name="email" required placeholder="E-Mail"
                             value="{{ Auth::check() ? Auth::user()->email : old('email') }}"
-                            class="w-full px-6 py-4 rounded-xl bg-gray-200 shadow-md outline-none focus:ring-2 focus:ring-slate-600">
+                            class="w-full px-6 py-4 rounded-xl bg-gray-200 shadow-md outline-none focus:ring-2 focus:ring-slate-600 transition">
                         @error('email')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                         @enderror
@@ -226,7 +220,7 @@
 
                     <div>
                         <textarea name="message" rows="8" required placeholder="Message"
-                            class="w-full h-full px-6 py-4 rounded-xl bg-gray-200 shadow-md outline-none resize-none focus:ring-2 focus:ring-slate-600">{{ old('message') }}</textarea>
+                            class="w-full h-full px-6 py-4 rounded-xl bg-gray-200 shadow-md outline-none resize-none focus:ring-2 focus:ring-slate-600 transition">{{ old('message') }}</textarea>
                         @error('message')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                         @enderror
@@ -242,33 +236,30 @@
                 </div>
 
             </form>
-            <!-- END FORM -->
+            <div class="flex justify-center gap-8 md:gap-16 mt-16 text-center text-slate-700 flex-wrap">
 
-            <!-- Social Media Icons -->
-            <div class="flex justify-center gap-16 mt-16 text-center text-slate-700">
-
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
                     <div
-                        class="w-16 h-16 mx-auto flex items-center justify-center bg-slate-600 rounded-full shadow-lg text-white text-2xl">
+                        class="w-16 h-16 mx-auto flex items-center justify-center bg-slate-600 rounded-full shadow-lg text-white text-2xl hover:scale-110 transition duration-300">
                         <i class="fa-brands fa-twitter"></i>
                     </div>
-                    <p class="mt-3 font-semibold">Atomix Books</p>
+                    <p class="mt-3 font-semibold text-sm md:text-base">Atomix Books</p>
                 </div>
 
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
                     <div
-                        class="w-16 h-16 mx-auto flex items-center justify-center bg-slate-600 rounded-full shadow-lg text-white text-2xl">
+                        class="w-16 h-16 mx-auto flex items-center justify-center bg-slate-600 rounded-full shadow-lg text-white text-2xl hover:scale-110 transition duration-300">
                         <i class="fa-brands fa-instagram"></i>
                     </div>
-                    <p class="mt-3 font-semibold">atomix_books</p>
+                    <p class="mt-3 font-semibold text-sm md:text-base">atomix_books</p>
                 </div>
 
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="500">
                     <div
-                        class="w-16 h-16 mx-auto flex items-center justify-center bg-slate-600 rounded-full shadow-lg text-white text-2xl">
+                        class="w-16 h-16 mx-auto flex items-center justify-center bg-slate-600 rounded-full shadow-lg text-white text-2xl hover:scale-110 transition duration-300">
                         <i class="fa-brands fa-whatsapp"></i>
                     </div>
-                    <p class="mt-3 font-semibold">62 82121540775</p>
+                    <p class="mt-3 font-semibold text-sm md:text-base">62 82121540775</p>
                 </div>
 
             </div>
@@ -279,12 +270,11 @@
 
 
 
-    <footer class="bg-slate-800 text-white">
+    <footer class="bg-slate-800 text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
 
-                <!-- Brand -->
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800">
                     <h2 class="text-3xl font-extrabold mb-6">ATOMIX BOOKS</h2>
                     <p class="text-slate-300 leading-relaxed">
                         Copyright © {{ date('Y') }} by ATOMIX, Inc. <br>
@@ -292,8 +282,7 @@
                     </p>
                 </div>
 
-                <!-- Contact -->
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                     <h3 class="text-xl font-semibold mb-6">Contact us</h3>
                     <p class="text-slate-300 leading-relaxed">
                         82 Babakan Tiga Street,<br>
@@ -305,8 +294,7 @@
                     </p>
                 </div>
 
-                <!-- Account -->
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                     <h3 class="text-xl font-semibold mb-6">Account</h3>
                     <ul class="space-y-4 text-slate-300">
                         <li>
@@ -318,8 +306,7 @@
                     </ul>
                 </div>
 
-                <!-- Social Media -->
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                     <h3 class="text-xl font-semibold mb-6">Social Media</h3>
                     <ul class="space-y-4 text-slate-300">
 
@@ -357,17 +344,17 @@
     </footer>
 
 
-    <div id="favoritesModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-[60] p-4">
+    <div id="favoritesModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-[60] p-4 backdrop-blur-sm">
         <div class="bg-white rounded-3xl max-w-5xl w-full overflow-hidden shadow-2xl border border-slate-200">
             <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
                 <div>
                     <h3 class="text-xl font-extrabold text-slate-800">My Favorite Books</h3>
                     <p class="text-sm text-slate-500">Daftar buku favorit kamu.</p>
                 </div>
-                <button onclick="closeFavorites()" class="text-slate-500 hover:text-slate-800"><i
-                        class="fa-solid fa-xmark"></i></button>
+                <button onclick="closeFavorites()" class="text-slate-500 hover:text-slate-800 transition"><i
+                        class="fa-solid fa-xmark text-xl"></i></button>
             </div>
-            <div class="p-6">
+            <div class="p-6 max-h-[70vh] overflow-y-auto">
                 <div id="favoritesGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
                 <p id="favoritesEmpty" class="text-sm text-slate-500 text-center py-10 hidden">Belum ada buku favorit.
                 </p>
@@ -375,8 +362,15 @@
         </div>
     </div>
 
-    <!-- Mobile menu JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+        // Inisialisasi AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+
         // Mobile menu
         const btn = document.getElementById('menuBtn');
         const menu = document.getElementById('mobileMenu');

@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="bg-[#f0f2f6] text-slate-800 font-sans">
@@ -157,40 +158,40 @@
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 pt-28 pb-10">
+    <main class="max-w-7xl mx-auto px-4 pt-28 pb-10 overflow-hidden">
         <div class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-black text-slate-800">Premium Book Collection</h1>
-            <p class="text-slate-500 mt-2">Discover our VIP books and preview before download.</p>
-            <div class="mt-4 flex justify-center gap-3">
+            <h1 data-aos="fade-down" data-aos-duration="1000" class="text-3xl md:text-4xl font-black text-slate-800">Premium Book Collection</h1>
+            <p data-aos="fade-up" data-aos-delay="100" class="text-slate-500 mt-2">Discover our VIP books and preview before download.</p>
+            <div data-aos="fade-up" data-aos-delay="200" class="mt-4 flex justify-center gap-3">
                 <a href="{{ route('books') }}"
-                    class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50">Kembali ke
+                    class="px-4 py-2 rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50 transition">Kembali ke
                     Books</a>
                 @if (!(auth()->check() && auth()->user()?->isMembershipActive()))
                     <a href="{{ route('user.daftar-member') }}"
-                        class="px-4 py-2 rounded-lg bg-yellow-300 text-slate-900 font-semibold hover:bg-yellow-200">Upgrade
+                        class="px-4 py-2 rounded-lg bg-yellow-400 text-slate-900 font-semibold hover:bg-yellow-300 transition shadow-sm hover:shadow">Upgrade
                         Membership</a>
                 @endif
             </div>
-            <form method="GET" action="{{ route('books.vip') }}"
+            <form data-aos="fade-up" data-aos-delay="300" method="GET" action="{{ route('books.vip') }}"
                 class="mt-5 flex flex-nowrap justify-center gap-2 text-xs overflow-x-auto whitespace-nowrap pb-2">
                 @foreach ($categories as $categoryItem)
                     <button type="submit" name="category" value="{{ $categoryItem->name }}"
-                        class="px-3 py-1 rounded-full border transition shrink-0 {{ ($category ?? '') === $categoryItem->name ? 'bg-slate-800 text-white border-slate-800' : 'bg-white border-slate-200 text-slate-600' }}">
+                        class="px-3 py-1 rounded-full border transition shrink-0 {{ ($category ?? '') === $categoryItem->name ? 'bg-slate-800 text-white border-slate-800' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50' }}">
                         {{ $categoryItem->name }}
                     </button>
                 @endforeach
                 @if (!empty($category))
                     <a href="{{ route('books.vip') }}"
-                        class="px-3 py-1 rounded-full border border-slate-300 text-slate-600 hover:bg-slate-50 shrink-0">Reset</a>
+                        class="px-3 py-1 rounded-full border border-slate-300 text-slate-600 hover:bg-slate-50 shrink-0 transition">Reset</a>
                 @endif
             </form>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             @forelse ($vipBukus as $book)
-                <button onclick="openBookModal({{ $book->id }})"
+                <button data-aos="fade-up" data-aos-duration="800" data-aos-delay="{{ ($loop->index % 4) * 100 }}" onclick="openBookModal({{ $book->id }})"
                     class="text-left bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition">
-                    <div class="h-60 bg-slate-100 overflow-hidden">
+                    <div class="h-60 bg-slate-100 overflow-hidden relative">
                         @if ($book->cover)
                             <img src="{{ asset('storage/' . $book->cover) }}" alt="{{ $book->judul_buku }}"
                                 class="w-full h-full object-cover hover:scale-105 transition duration-300">
@@ -198,6 +199,7 @@
                             <div class="w-full h-full flex items-center justify-center text-slate-400"><i
                                     class="fa-solid fa-book text-4xl"></i></div>
                         @endif
+                        <div class="absolute top-2 right-2 bg-purple-600/90 backdrop-blur text-white text-[10px] font-bold px-2 py-1 rounded">VIP</div>
                     </div>
                     <div class="p-4">
                         <h3 class="font-semibold line-clamp-1">{{ $book->judul_buku }}</h3>
@@ -205,22 +207,22 @@
                         <div class="mt-2 flex items-center justify-between text-sm">
                             <span class="text-amber-500"><i class="fa-solid fa-star"></i>
                                 {{ number_format((float) ($book->ratings_avg_rating ?? 0), 1) }}</span>
-                            <span class="text-emerald-600 font-semibold">VIP</span>
+                            <span class="text-purple-700 font-semibold bg-purple-100 px-2 py-0.5 rounded text-xs">VIP</span>
                         </div>
                     </div>
                 </button>
             @empty
-                <p class="text-sm text-slate-500 col-span-full text-center">Belum ada buku VIP.</p>
+                <p data-aos="fade-up" class="text-sm text-slate-500 col-span-full text-center py-10">Belum ada buku VIP.</p>
             @endforelse
         </div>
 
-        <div class="mt-8">{{ $vipBukus->links() }}</div>
+        <div data-aos="fade-up" class="mt-8">{{ $vipBukus->links() }}</div>
     </main>
 
-    <footer class="bg-slate-800 text-white">
+    <footer class="bg-slate-800 text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800">
                     <h2 class="text-3xl font-extrabold mb-6">ATOMIX BOOKS</h2>
                     <p class="text-slate-300 leading-relaxed">
                         Copyright © {{ date('Y') }} by ATOMIX, Inc. <br>
@@ -228,7 +230,7 @@
                     </p>
                 </div>
 
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                     <h3 class="text-xl font-semibold mb-6">Contact us</h3>
                     <p class="text-slate-300 leading-relaxed">
                         82 Babakan Tiga Street,<br>
@@ -240,7 +242,7 @@
                     </p>
                 </div>
 
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                     <h3 class="text-xl font-semibold mb-6">Account</h3>
                     <ul class="space-y-4 text-slate-300">
                         <li>
@@ -252,7 +254,7 @@
                     </ul>
                 </div>
 
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                     <h3 class="text-xl font-semibold mb-6">Social Media</h3>
                     <ul class="space-y-4 text-slate-300">
                         <li>
@@ -284,17 +286,17 @@
         </div>
     </footer>
 
-    <div id="favoritesModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-[60] p-4">
+    <div id="favoritesModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-[60] p-4 backdrop-blur-sm">
         <div class="bg-white rounded-3xl max-w-5xl w-full overflow-hidden shadow-2xl border border-slate-200">
             <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
                 <div>
                     <h3 class="text-xl font-extrabold text-slate-800">My Favorite Books</h3>
                     <p class="text-sm text-slate-500">Daftar buku favorit kamu.</p>
                 </div>
-                <button onclick="closeFavorites()" class="text-slate-500 hover:text-slate-800"><i
-                        class="fa-solid fa-xmark"></i></button>
+                <button onclick="closeFavorites()" class="text-slate-500 hover:text-slate-800 transition"><i
+                        class="fa-solid fa-xmark text-xl"></i></button>
             </div>
-            <div class="p-6">
+            <div class="p-6 max-h-[70vh] overflow-y-auto">
                 <div id="favoritesGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
                 <p id="favoritesEmpty" class="text-sm text-slate-500 text-center py-10 hidden">Belum ada buku favorit.
                 </p>
@@ -302,62 +304,62 @@
         </div>
     </div>
 
-    <div id="bookModal" class="fixed inset-0 bg-black/65 hidden items-center justify-center z-50 p-4">
+    <div id="bookModal" class="fixed inset-0 bg-black/65 hidden items-center justify-center z-50 p-4 backdrop-blur-sm transition-opacity">
         <div class="bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl border border-slate-200">
             <div class="grid md:grid-cols-2">
-                <div class="bg-slate-200/70 h-80 md:h-full">
+                <div class="bg-slate-200/70 h-80 md:h-full relative">
                     <img id="modalCover" src="" alt="cover" class="w-full h-full object-cover hidden">
                     <div id="modalCoverFallback"
                         class="w-full h-full flex items-center justify-center text-slate-400">
                         <i class="fa-solid fa-image text-5xl"></i>
                     </div>
                 </div>
-                <div class="p-6 md:p-8">
+                <div class="p-6 md:p-8 max-h-[85vh] overflow-y-auto">
                     <div class="flex items-start justify-between gap-3">
-                        <h3 id="modalTitle" class="text-2xl font-black text-slate-800">Judul Buku</h3>
-                        <button onclick="closeBookModal()" class="text-slate-500 hover:text-slate-800"><i
-                                class="fa-solid fa-xmark"></i></button>
+                        <h3 id="modalTitle" class="text-2xl font-black text-slate-800 leading-tight">Judul Buku</h3>
+                        <button onclick="closeBookModal()" class="text-slate-500 hover:text-slate-800 transition"><i
+                                class="fa-solid fa-xmark text-xl"></i></button>
                     </div>
 
                     <div class="mt-4 space-y-2 text-sm text-slate-700">
-                        <p><span class="font-semibold">Pengarang:</span> <span id="modalAuthor">-</span></p>
-                        <p><span class="font-semibold">Tahun Terbit:</span> <span id="modalYear">-</span></p>
-                        <p><span class="font-semibold">Kategori:</span> <span id="modalCategory">-</span></p>
+                        <p><span class="font-semibold text-slate-900">Pengarang:</span> <span id="modalAuthor">-</span></p>
+                        <p><span class="font-semibold text-slate-900">Tahun Terbit:</span> <span id="modalYear">-</span></p>
+                        <p><span class="font-semibold text-slate-900">Kategori:</span> <span id="modalCategory">-</span></p>
                     </div>
 
-                    <div class="mt-4 rounded-xl bg-slate-50 border border-slate-200 p-3 text-sm text-slate-600">
+                    <div class="mt-4 rounded-xl bg-slate-50 border border-slate-200 p-4 text-sm text-slate-600 leading-relaxed">
                         <p id="modalDescription">-</p>
                     </div>
 
                     <div class="mt-4 flex items-center gap-3 text-sm">
-                        <span class="text-amber-500 font-semibold"><i class="fa-solid fa-star"></i> <span
+                        <span class="text-amber-500 font-semibold text-base"><i class="fa-solid fa-star"></i> <span
                                 id="modalRatingAvg">0.0</span></span>
                         <span class="text-slate-500">(<span id="modalRatingCount">0</span> rating)</span>
                     </div>
 
                     <div class="mt-6 space-y-3">
                         <a id="modalDownloadBtn" href="#"
-                            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold hidden">
+                            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 transition text-white text-sm font-semibold hidden w-full justify-center sm:w-auto">
                             <i class="fa-solid fa-download"></i> Download PDF
                         </a>
 
                         <button id="modalReadBtn" type="button"
-                            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-900 text-white text-sm font-semibold hidden">
+                            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-slate-800 hover:bg-slate-900 transition text-white text-sm font-semibold hidden w-full justify-center sm:w-auto">
                             <i class="fa-solid fa-book-open"></i> Baca Online
                         </button>
 
                         <button id="modalFavoriteBtn" type="button"
-                            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 text-slate-700 text-sm font-semibold hidden">
-                            <i class="fa-solid fa-heart"></i> <span id="modalFavoriteText">Tambah Favorit</span>
+                            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-50 transition text-sm font-semibold hidden w-full justify-center sm:w-auto">
+                            <i class="fa-solid fa-heart text-red-500"></i> <span id="modalFavoriteText">Tambah Favorit</span>
                         </button>
 
-                        <div id="modalLockedWrap" class="hidden">
+                        <div id="modalLockedWrap" class="hidden bg-slate-50 p-4 rounded-xl border border-slate-200">
                             <button
-                                class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-200 text-slate-500 text-sm font-semibold cursor-not-allowed pointer-events-none"
+                                class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-200 text-slate-500 text-sm font-semibold cursor-not-allowed pointer-events-none w-full justify-center sm:w-auto"
                                 disabled>
                                 <i class="fa-solid fa-lock"></i> Download PDF
                             </button>
-                            <p class="text-xs text-slate-500 mt-2">Member only. Upgrade untuk membuka akses.</p>
+                            <p class="text-xs text-slate-500 mt-2"><i class="fa-solid fa-circle-info text-amber-500"></i> Member only. Upgrade untuk membuka akses VIP.</p>
                         </div>
                     </div>
                 </div>
@@ -365,18 +367,26 @@
         </div>
     </div>
 
-    <div id="readModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-[60] p-4">
-        <div class="bg-white rounded-2xl w-full max-w-5xl overflow-hidden shadow-2xl border border-slate-200">
-            <div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
-                <h4 class="font-semibold text-slate-700">Baca Online</h4>
-                <button onclick="closeReadModal()" class="text-slate-500 hover:text-slate-800"><i
-                        class="fa-solid fa-xmark"></i></button>
+    <div id="readModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[70] p-2 md:p-6 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl w-full max-w-5xl overflow-hidden shadow-2xl border border-slate-200 flex flex-col h-full md:h-[90vh]">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-slate-50">
+                <h4 class="font-bold text-slate-800"><i class="fa-solid fa-book-open text-blue-600 mr-2"></i> Baca Online</h4>
+                <button onclick="closeReadModal()" class="text-slate-500 hover:text-red-500 transition px-2 py-1 rounded-md hover:bg-red-50"><i
+                        class="fa-solid fa-xmark text-lg"></i> Tutup</button>
             </div>
-            <iframe id="readFrame" src="" class="w-full h-[70vh]" title="Baca buku"></iframe>
+            <iframe id="readFrame" src="" class="w-full flex-1" title="Baca buku"></iframe>
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+        // Inisialisasi AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         let activeFavoriteUrl = null;
         let activeReadUrl = null;
@@ -409,6 +419,7 @@
             const favoriteBtn = document.getElementById('modalFavoriteBtn');
             const favoriteText = document.getElementById('modalFavoriteText');
             const lockWrap = document.getElementById('modalLockedWrap');
+            
             if (data.can_download) {
                 downloadBtn.href = data.download_url;
                 downloadBtn.classList.remove('hidden');
@@ -434,6 +445,15 @@
                 activeFavoriteUrl = data.favorite_url;
                 favoriteBtn.classList.remove('hidden');
                 favoriteText.textContent = data.is_favorite ? 'Hapus Favorit' : 'Tambah Favorit';
+                
+                const heartIcon = favoriteBtn.querySelector('.fa-heart');
+                if(data.is_favorite) {
+                    heartIcon.classList.remove('fa-regular');
+                    heartIcon.classList.add('fa-solid');
+                } else {
+                    heartIcon.classList.remove('fa-solid');
+                    heartIcon.classList.add('fa-regular');
+                }
             } else {
                 activeFavoriteUrl = null;
                 favoriteBtn.classList.add('hidden');
@@ -442,6 +462,10 @@
             const modal = document.getElementById('bookModal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
         }
 
         document.getElementById('modalReadBtn').addEventListener('click', () => {
@@ -468,7 +492,20 @@
             if (!response.ok) return;
 
             const favoriteText = document.getElementById('modalFavoriteText');
+            const favoriteBtn = document.getElementById('modalFavoriteBtn');
+            const heartIcon = favoriteBtn.querySelector('.fa-heart');
+            
             favoriteText.textContent = data.is_favorite ? 'Hapus Favorit' : 'Tambah Favorit';
+            
+            if(data.is_favorite) {
+                heartIcon.classList.remove('fa-regular');
+                heartIcon.classList.add('fa-solid');
+                heartIcon.classList.add('scale-125');
+                setTimeout(() => heartIcon.classList.remove('scale-125'), 200);
+            } else {
+                heartIcon.classList.remove('fa-solid');
+                heartIcon.classList.add('fa-regular');
+            }
         });
 
         function closeBookModal() {
@@ -531,20 +568,24 @@
                 data.data.forEach((book) => {
                     const card = document.createElement('div');
                     card.className =
-                        'bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm text-left';
+                        'bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm text-left relative group';
 
                     const cover = book.cover ?
-                        `<img src="${book.cover}" alt="${book.judul_buku}" class="w-full h-full object-cover">` :
-                        `<div class="w-full h-full flex items-center justify-center text-slate-400"><i class="fa-solid fa-book text-3xl"></i></div>`;
+                        `<img src="${book.cover}" alt="${book.judul_buku}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">` :
+                        `<div class="w-full h-full flex items-center justify-center text-slate-400 bg-slate-100"><i class="fa-solid fa-book text-3xl"></i></div>`;
+
+                    const badge = book.access_type === 'member' ? 
+                        '<div class="absolute top-2 right-2 bg-purple-600/90 backdrop-blur text-white text-[9px] font-bold px-1.5 py-0.5 rounded z-10">VIP</div>' : 
+                        '<div class="absolute top-2 right-2 bg-emerald-500/90 backdrop-blur text-white text-[9px] font-bold px-1.5 py-0.5 rounded z-10">FREE</div>';
 
                     card.innerHTML = `
-                        <div class="h-40 bg-slate-100">${cover}</div>
+                        ${badge}
+                        <div class="h-40 bg-slate-100 overflow-hidden">${cover}</div>
                         <div class="p-3">
                             <p class="font-semibold text-sm line-clamp-1">${book.judul_buku}</p>
-                            <p class="text-xs text-slate-500 line-clamp-1">${book.pengarang}</p>
+                            <p class="text-xs text-slate-500 line-clamp-1 mt-0.5">${book.pengarang}</p>
                             <div class="mt-2 flex items-center justify-between text-xs">
-                                <span class="text-amber-500"><i class=\"fa-solid fa-star\"></i> ${book.rating}</span>
-                                <span class="px-2 py-0.5 rounded ${book.access_type === 'member' ? 'bg-purple-100 text-purple-700' : 'bg-emerald-100 text-emerald-700'}">${book.access_type === 'member' ? 'VIP' : 'FREE'}</span>
+                                <span class="text-amber-500 font-medium"><i class=\"fa-solid fa-star\"></i> ${Number(book.rating).toFixed(1)}</span>
                             </div>
                         </div>
                     `;
