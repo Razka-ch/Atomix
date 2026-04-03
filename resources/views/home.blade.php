@@ -225,19 +225,15 @@
 
                 <div data-aos="fade-left" data-aos-duration="1000">
                     <h3 class="text-xl md:text-2xl font-bold mb-4">
-                        LOREM IPSUM
+                        ENDLESS DISCOVERY
                     </h3>
 
                     <p class="text-sm md:text-base text-gray-700 leading-relaxed space-y-4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
+                        Step into a boundless universe of literature. Atomix Books provides readers with an extensive, ever-growing collection of digital publications spanning across countless genres and disciplines.
                         <br><br>
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat.
+                        Whether you are diving into gripping fictional worlds, researching complex scientific theories, or simply looking to unwind with a classic novel, our platform is engineered to deliver high-quality content directly to your screen.
                         <br><br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non mauris ac
-                        nulla consequat tincidunt. Integer vitae justo nec lorem dignissim cursus.
-                        Curabitur sit amet turpis sed arcu facilisis tristique.
+                        Experience reading without borders. We believe that knowledge should be accessible to everyone, empowering minds and fostering a global community of passionate readers.
                     </p>
                 </div>
             </div>
@@ -246,19 +242,15 @@
 
                 <div data-aos="fade-right" data-aos-duration="1000" class="order-2 md:order-1 text-center md:text-left">
                     <h3 class="text-xl md:text-2xl font-bold mb-4">
-                        LOREM IPSUM
+                        SEAMLESS EXPERIENCE
                     </h3>
 
                     <p class="text-sm md:text-base text-gray-700 leading-relaxed space-y-4 max-w-xl mx-auto md:mx-0">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua.
+                        We have designed Atomix Books to be more than just a repository; it is a personalized reading sanctuary. Our intuitive interface ensures that finding your next favorite book is effortless.
                         <br><br>
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat.
+                        With features tailored for modern readers—such as customized recommendations, cross-device synchronization, and offline reading capabilities—you can carry an entire library in your pocket.
                         <br><br>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit amet
-                        turpis sed arcu facilisis tristique. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Join thousands of members who have transformed their reading habits. Dive into a modern, seamless digital ecosystem built specifically to honor the timeless joy of reading.
                     </p>
                 </div>
 

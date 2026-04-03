@@ -7,20 +7,18 @@
     @vite('resources/css/app.css')
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-900 text-white">
 
-    <!-- ================= HERO SECTION ================= -->
-    <section class="relative min-h-screen bg-cover bg-center"
+    <section class="relative min-h-screen bg-cover bg-center overflow-hidden"
         style="background-image: url('{{ asset('img/perpustakaan cta.jpg') }}');">
 
-        <!-- Overlay -->
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
 
-        <!-- Navbar -->
         <div class="relative z-10 px-4 sm:px-6 md:px-10 pt-6 sm:pt-8">
-            <div
+            <div data-aos="fade-down" data-aos-duration="1000"
                 class="flex justify-between items-center 
                         bg-white/10 backdrop-blur-md 
                         border border-white/20
@@ -40,28 +38,27 @@
             </div>
         </div>
 
-        <!-- Hero Content -->
         <div
             class="relative z-10 flex flex-col items-center justify-center 
                     text-center h-[85vh] px-4 sm:px-6">
 
-            <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-3 sm:mb-4 tracking-widest">
+            <h2 data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100" class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-3 sm:mb-4 tracking-widest">
                 WELCOME TO
             </h2>
 
-            <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight">
+            <h1 data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="300" class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight">
                 ATOMIX BOOKS — DIGITAL LIBRARY
             </h1>
 
-            <p class="max-w-xs sm:max-w-lg md:max-w-2xl text-xs sm:text-sm md:text-base text-gray-200 mb-6 sm:mb-10">
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" class="max-w-xs sm:max-w-lg md:max-w-2xl text-xs sm:text-sm md:text-base text-gray-200 mb-6 sm:mb-10">
                 READ BOOKS, COMPLETE NOVELS ONLY HERE, LET'S START EXPLORING
                 ALL THE POPULAR BOOKS ON OUR PLATFORM
             </p>
 
-            <img src="{{ asset('img/fe506d26553eed1882eaa93566815651-removebg-preview.png') }}"
+            <img data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="700" src="{{ asset('img/fe506d26553eed1882eaa93566815651-removebg-preview.png') }}"
                 class="w-48 sm:w-64 md:w-72 lg:w-96 drop-shadow-2xl mb-6 sm:mb-10">
 
-            <a href="/login"
+            <a data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900" href="/login"
                 class="border border-white px-8 sm:px-10 py-2.5 sm:py-3 rounded-full 
                       text-base sm:text-lg font-semibold 
                       hover:bg-white hover:text-black 
@@ -72,15 +69,13 @@
     </section>
 
 
-    <!-- ================= COLLECTION SECTION ================= -->
-    <section class="bg-gray-900 py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10">
+    <section class="bg-gray-900 py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 overflow-hidden">
 
-        <!-- REGULAR COLLECTION -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-16 sm:mb-24 md:mb-28">
 
-            <img src="{{ asset('img/about-pic2.jpg') }}" class="rounded-xl shadow-2xl w-full">
+            <img data-aos="fade-right" data-aos-duration="1000" src="{{ asset('img/about-pic2.jpg') }}" class="rounded-xl shadow-2xl w-full">
 
-            <div class="mt-4 md:mt-0">
+            <div data-aos="fade-left" data-aos-duration="1000" class="mt-4 md:mt-0">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
                     REGULAR COLLECTION
                 </h2>
@@ -99,11 +94,9 @@
 
         </div>
 
-        <!-- MEMBERSHIP COLLECTION -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
 
-            <!-- Text comes first on mobile, image second -->
-            <div class="order-1">
+            <div data-aos="fade-right" data-aos-duration="1000" class="order-1">
                 <h2 class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-4 sm:mb-6">
                     MEMBERSHIP COLLECTION
                 </h2>
@@ -120,7 +113,7 @@
                 </ul>
             </div>
 
-            <div class="relative order-2 mt-4 md:mt-0">
+            <div data-aos="fade-left" data-aos-duration="1000" class="relative order-2 mt-4 md:mt-0">
                 <img src="{{ asset('img/about-pic2.jpg') }}"
                     class="rounded-xl shadow-2xl border border-yellow-500/40 w-full">
 
@@ -141,20 +134,17 @@
 
     </section>
 
-    <!-- ================= POPULAR BOOKS SECTION ================= -->
-    <section class="relative py-20 sm:py-24 md:py-32 bg-cover bg-center"
+    <section class="relative py-20 sm:py-24 md:py-32 bg-cover bg-center overflow-hidden"
         style="background-image: url('{{ asset('img/perpustakaan cta.jpg') }}');">
 
-        <!-- Overlay -->
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
 
         <div class="relative z-10 text-center mb-12 sm:mb-16 md:mb-20 px-4">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-widest">
+            <h2 data-aos="fade-up" data-aos-duration="800" class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-widest">
                 OUR POPULAR BOOKS
             </h2>
         </div>
 
-        <!-- Books: stack vertically on mobile, row on md+ -->
         <div
             class="relative z-10 flex flex-col md:flex-row items-center md:items-end justify-center gap-8 sm:gap-10 md:gap-16 px-4 sm:px-6">
             @forelse ($popularBooks as $book)
@@ -172,7 +162,7 @@
                             ? 'bg-gray-400 text-white w-9 h-9 sm:w-10 sm:h-10 text-sm sm:text-base'
                             : 'bg-red-500 text-white w-9 h-9 sm:w-10 sm:h-10 text-sm sm:text-base');
                 @endphp
-                <div
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ $rank * 200 }}"
                     class="relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl text-center min-h-[360px] {{ $cardClasses }}">
                     <div
                         class="absolute -top-5 md:-top-6 left-1/2 -translate-x-1/2 font-bold flex items-center justify-center rounded-full shadow-lg {{ $badgeClasses }}">
@@ -202,11 +192,11 @@
                     </a>
                 </div>
             @empty
-                <div class="text-slate-200 text-sm">Belum ada buku populer.</div>
+                <div data-aos="fade-up" class="text-slate-200 text-sm">Belum ada buku populer.</div>
             @endforelse
         </div>
 
-        <div class="relative z-10 mt-12 flex justify-center px-4">
+        <div data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400" class="relative z-10 mt-12 flex justify-center px-4">
             <a href="/register"
                 class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-yellow-400 text-black font-semibold hover:bg-yellow-300 transition duration-300">
                 Create Account
@@ -214,13 +204,11 @@
         </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="bg-slate-800 text-white">
+    <footer class="bg-slate-800 text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12">
 
-                <!-- Brand -->
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800">
                     <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 sm:mb-6">ATOMIX BOOKS</h2>
                     <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
                         Copyright © {{ date('Y') }} by ATOMIX, Inc. <br>
@@ -228,8 +216,7 @@
                     </p>
                 </div>
 
-                <!-- Contact -->
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                     <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Contact us</h3>
                     <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
                         82 Babakan Tiga Street,<br>
@@ -241,8 +228,7 @@
                     </p>
                 </div>
 
-                <!-- Account -->
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                     <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Account</h3>
                     <ul class="space-y-3 sm:space-y-4 text-slate-300 text-sm sm:text-base">
                         <li>
@@ -254,8 +240,7 @@
                     </ul>
                 </div>
 
-                <!-- Social Media -->
-                <div>
+                <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                     <h3 class="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Social Media</h3>
                     <ul class="space-y-3 sm:space-y-4 text-slate-300 text-sm sm:text-base">
 
@@ -290,6 +275,14 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+    </script>
 </body>
 
 </html>
