@@ -222,7 +222,7 @@ class BukuController extends Controller
             'kategori'     => 'required|string',
             'access_type'  => 'required|in:free,member',
             'cover'        => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'pdf_file'     => 'nullable|mimes:pdf|max:10240',
+            'pdf_file'     => 'nullable|mimes:pdf|max:100020',
             'deskripsi_singkat' => 'nullable|string|max:1200',
         ]);
 
