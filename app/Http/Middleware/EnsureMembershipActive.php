@@ -23,7 +23,7 @@ class EnsureMembershipActive
         ]);
       }
     }
-// RAZKA MEMEK
+
     return $next($request);
   }
 }
