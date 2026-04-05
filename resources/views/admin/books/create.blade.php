@@ -122,9 +122,9 @@
                                     <i class="fa-solid fa-file-pdf text-3xl text-gray-400 mb-2"></i>
                                     <div class="flex text-sm text-gray-600 justify-center">
                                         <span class="text-blue-600 font-medium mr-1">Upload PDF</span>
-                                        <span>(optional)</span>
+                                        
                                     </div>
-                                    <p class="text-xs text-gray-500">PDF up to 10MB</p>
+                                    <p class="text-xs text-gray-500">PDF up to 20MB</p>
                                 </div>
                                 <input type="file" name="pdf_file" accept="application/pdf"
                                     class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">

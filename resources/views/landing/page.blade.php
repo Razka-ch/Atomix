@@ -69,7 +69,7 @@
     </section>
 
 
-    <section class="bg-gray-900 py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 overflow-hidden">
+    <section class="bg-black py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-10 overflow-hidden">
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-16 sm:mb-24 md:mb-28">
 
@@ -204,7 +204,7 @@
         </div>
     </section>
 
-    <footer class="bg-slate-800 text-white overflow-hidden">
+    <footer class="bg-black text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 md:gap-12">
 
