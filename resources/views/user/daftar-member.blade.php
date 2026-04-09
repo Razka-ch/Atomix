@@ -73,12 +73,18 @@
                     </div>
                 </div>
 
-                <div class="rounded-xl bg-slate-50 border border-slate-200 p-4">
-                    <p class="text-sm text-slate-700">Pembayaran aktif admin:</p>
-                    <p class="text-lg font-bold text-slate-900 mt-1">DANA / GOPAY: 0821-2154-0775</p>
-                    <p class="text-sm text-slate-600 mt-2">Nominal terpilih: <span id="nominalPreview"
-                            class="font-semibold">Rp 100.000</span></p>
-                </div>
+                <div class="rounded-xl bg-slate-50 border border-slate-200 p-4 flex flex-col sm:flex-row items-center sm:items-start justify-between gap-4">
+    <div>
+        <p class="text-sm text-slate-700">Pembayaran aktif admin:</p>
+        <p class="text-lg font-bold text-slate-900 mt-1">DANA / GOPAY: 0821-2154-0775</p>
+        <p class="text-sm text-slate-600 mt-2">Nominal terpilih: <span id="nominalPreview"
+                class="font-semibold">Rp 100.000</span></p>
+    </div>
+    
+    <div class="shrink-0 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+        <img src="{{ asset('img/Qris.jpeg') }}" alt="QRIS Pembayaran" class="w-28 h-28 object-cover">
+    </div>
+</div>
 
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-1">Payment Proof (JPG/PNG, max
